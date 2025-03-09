@@ -1,4 +1,5 @@
 #include "USBComposite.h" 
+#include <cstring>
 
 //================================================================================
 //================================================================================
@@ -54,3 +55,8 @@ bool HIDMouse::isPressed(uint8_t b)
 	return false;
 }
 
+void HIDMouse::setReport(uint8_t *report)
+{
+    memcpy(reportBuffer+1, report, 4);
+	sendReport();
+}

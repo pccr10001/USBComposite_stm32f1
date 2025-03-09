@@ -1,4 +1,5 @@
 #include "USBComposite.h" 
+#include <cstring>
 #include <string.h>
 
 //================================================================================
@@ -246,6 +247,14 @@ void HIDKeyboard::releaseAll(void)
 {
     memset(keyReport.keys, 0, rollover);
 	keyReport.modifiers = 0;
+	
+	sendReport();
+}
+
+void HIDKeyboard::setReport(uint8_t *report)
+{
+    memcpy(keyReport.keys,report+2, 6);
+	keyReport.modifiers = report[0];
 	
 	sendReport();
 }

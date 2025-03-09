@@ -539,6 +539,7 @@ public:
 	void press(uint8_t b = MOUSE_LEFT);		// press LEFT by default
 	void release(uint8_t b = MOUSE_LEFT);	// release LEFT by default
 	bool isPressed(uint8_t b = MOUSE_ALL);	// check all buttons by default
+    void setReport(uint8_t *report);
 };
 
 typedef struct {
@@ -769,6 +770,7 @@ public:
 	virtual size_t press(uint16_t k);
 	virtual size_t release(uint16_t k);
 	virtual void releaseAll(void);
+    void setReport(uint8_t *report);
 };
 
 
